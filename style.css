@@ -9,11 +9,11 @@ html,body{
     height: 100vh;
     padding: 0px;
     overflow: hidden;
+    background-color: var(--background-color);
 }
 
 main{
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.461);
     position: relative;
 }
 /* Header Home Page */
@@ -37,6 +37,9 @@ header{
     font-weight: 100;
     text-shadow: 0px 0px 10px white;
     letter-spacing: 3px;
+}
+.logo-text-default:hover{
+    cursor: pointer;
 }
 .input-container-home{
     position: relative;
@@ -105,6 +108,7 @@ header{
     display: flex;
     height: 100%;
     transform: scale(1);
+    background-color: rgb(111, 111, 111);
 }
 .card-home{
     flex: 1 1 0px;
@@ -160,6 +164,15 @@ header{
 
 
 /* Loader */
+.loading-screen{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #dcdde1;
+    letter-spacing: 2px;
+}
 .loader {
     z-index: 10;
     color: #dcdde1;
@@ -266,4 +279,43 @@ header{
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+/* Error */
+.error-screen{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #dcdde1;
+    gap: 10px;
+    letter-spacing: 2px;
+}
+.error-icon{
+    background-color: #e44545;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-icon::after{
+    content: '';
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    transform: rotatez(45deg);
+    height: 10px;
+    background-color: #dcdde1;
+}
+.error-icon::before{
+    content: '';
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    transform: rotatez(9135deg);
+    height: 10px;
+    background-color: #dcdde1;
 }
