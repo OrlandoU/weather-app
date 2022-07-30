@@ -1,7 +1,9 @@
 import queryClimate from "./query";
-import {renderHomePage} from "./displayController"
+import {renderHomePage, renderLoader} from "./displayController"
 
 renderHomePage()
+
+
 
 
 
