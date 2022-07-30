@@ -1,166 +1,82 @@
 * {
-    box-sizing: border-box;
     --background-color: #273c75;
-}
-
-body {
-    height: 100vh;
-    margin: 0;
-    position: relative;
-    overflow: hidden;
     font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    margin: 0px;
+}
+html,body{
+    width: 100vw;
+    height: 100vh;
+    padding: 0px;
+    overflow: hidden;
 }
 
-main {
+main{
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.461);
+    position: relative;
+}
+/* Header Home Page */
+header{
+    display: flex;
     z-index: 10;
-    padding: 20px;
-    height: 100%;
-    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    right: 0;
+    left: 0;
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background-color: #0000006a;
+    backdrop-filter: blur(8px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.489);
+    color: #dcdde1;
 }
-
-/* Blurred Background */
-.backgroundSlideContainer {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    background-size: 100% auto;
-    z-index: -1;
-}
-
-.backgroundSlideContainer::after {
-    inset: 0;
-    content: '';
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.254);
-    backdrop-filter: blur(2px);
-}
-
-/* Default Header styling */
-header {
-    background-color: rgba(0, 0, 0, 0.312);
-    backdrop-filter: blur(6px);
-    font-size: 1rem;
-
-    font-style: italic;
-    font-weight: 900;
-    display: flex;
-    border-radius: 5px;
-}
-
-.header-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    font-weight: 400;
-    color: rgb(241, 241, 241);
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.791);
-    position: relative;
-}
-
-header span {
-    margin-left: -18px;
-}
-
-header img {
-    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.404));
-    width: 70px;
-}
-
-/* Home Screen Input styling */
-.input-container {
+.logo-default{
     flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
-.input-sub-container {
+.logo-text-default{
+    font-weight: 100;
+    text-shadow: 0px 0px 10px white;
+    letter-spacing: 3px;
+}
+.input-container-home{
     position: relative;
-}
-
-.home-screen-input+label:hover {
-    cursor: pointer;
-}
-
-.home-screen-input {
-    background-color: rgba(0, 0, 0, 0.312);
     border-radius: 5px;
-    border: none;
-    padding: 10px 20px;
-    position: relative;
-    font-size: 1.4rem;
+    background-color: rgba(0, 0, 0, 0.374);
+    overflow: hidden;
+}
+.input-home{
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
     outline: none;
-    backdrop-filter: blur(6px);
-    color: white;
-}
-
-.home-screen-input+label {
-    color: rgb(255, 255, 255);
-    font-weight: 400;
+    border: none;
+    color: #dcdde1;
+    padding: 5px 10px;
     font-size: 1.2rem;
+    
+}
+.input-home + span{
     position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 300ms ease;
-
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #dcdde1;
+    height: 2px;
+    transition: 400ms ease;
+    transform-origin: left;
+    transform: scaleX(0);
 }
-
-.home-screen-input:not(:placeholder-shown)+label {
-    color: rgba(255, 255, 255, 0.574);
-    left: -70%;
-    top: -160%;
-    font-size: 1rem;
+.input-home:focus + span{
+    transform: scaleX(1);
 }
-
-.home-screen-input:focus+label {
-    color: rgba(255, 255, 255, 0.574);
-    left: -70%;
-    top: -160%;
-    font-size: 1rem;
-}
-.home-screen-input:hover, .home-screen-input:focus{
-    outline: 1px solid #dcdde1;
-}
-
-/* Home Screen info container styling */
-.info-container {
-    color: rgb(241, 241, 241);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+.submit-home{
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 10px;
+    top: 25%;
+    width: 20px;
 }
-
-.info-container>* {
-    width: fit-content;
-}
-
-.loading-screen-city-name {
-    font-size: 7rem;
-    font-weight: 100;
-    border-bottom: 2px solid rgb(241, 241, 241);
-    ;
-}
-
-.loading-screen-city-weather {
-    font-size: 2.5rem;
-    font-weight: 100;
-}
-
-.loading-screen-city-temp {
-    font-size: 2.5rem;
-    font-weight: 100;
-    border-top: 2px solid rgb(241, 241, 241);
-    ;
+.submit-home:hover{
+    cursor: pointer;
 }
 
 .tokyo {
@@ -174,22 +90,73 @@ header img {
 .france {
     background-image: url('https://images.wallpapersden.com/image/download/eiffel-tower-paris-france_ZmtrZW6UmZqaraWkpJRobWllrWdma2U.jpg');
 }
+.athens{
+    background-image: url('https://images3.alphacoders.com/111/1116152.jpg');
+}
+.london{
+    background-image: url('https://wallpaperaccess.com/full/2253810.jpg');
+}
+.roma{
+    background-image: url('https://media.meer.com/attachments/b84c9fe25a4cfec0ae3b3c0743a9abca8460be96/store/fill/1090/613/7579b0d37101d1b49624dc9a052e62a5e072eb410b99cd1d8808996a2357/La-capital-italiana-esta-plagada-de-arte-historia-y-belleza.jpg');
+}
 
-.fadeout {
-    animation: fade 1000ms ease-in-out;
+/* Main Container Home Page */
+.cards-container-home{
+    display: flex;
+    height: 100%;
+    transform: scale(1);
+}
+.card-home{
+    flex: 1 1 0px;
+    width: 0;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background-size: cover;
+    transition: 1s ease;
+    filter: grayscale(0.8) blur(1px);
+    color: transparent;
+}
+.card-home:hover{
+    flex: 5 1 0px;
+    color: white;
+    filter: grayscale(0) blur(0px);
     z-index: 1;
+    box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.285);
+    transform: translateZ(2px); 
+    text-shadow: -5px -5px 10px black;
 }
-
-@keyframes fade {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
+.card-home::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    left: 0;
+    height: 220px;
+    z-index: 1;
+    transition: 1s;
 }
-
+.card-home:hover::after{
+    background-color: rgba(0, 0, 0, 0.079);
+    backdrop-filter: blur(3px);
+}
+.city-name-home, .city-temp-home, .city-weather-home{
+    z-index: 3;
+    font-weight: 100;
+    filter: drop-shadow(10px 10px 10px black);
+    white-space: nowrap;
+}
+.city-name-home{
+    font-size: 6rem;
+}
+.city-temp-home{
+    font-size: 2rem;
+}
+.city-weather-home{
+    font-size: 2rem;
+}
 
 
 /* Loader */
