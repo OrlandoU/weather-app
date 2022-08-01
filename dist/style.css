@@ -3,25 +3,38 @@
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
     margin: 0px;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform: translate3d(0, 0, 0);
+    transform: translateZ(0);
 }
-html,body{
+
+html,
+body {
     width: 100vw;
     height: 100vh;
     padding: 0px;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: var(--background-color);
 }
 
-main{
-    height: 100%;
-    position: relative;
+main {
+    min-height: 100%;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-image: url('https://images.pexels.com/photos/4737484/pexels-photo-4737484.jpeg?cs=srgb&dl=pexels-rafael-cerqueira-4737484.jpg&fm=jpg');
 }
+
 /* Header Home Page */
-header{
+header {
     display: flex;
     z-index: 10;
     margin: 10px;
-    padding: 10px;
     right: 0;
     left: 0;
     position: absolute;
@@ -29,25 +42,38 @@ header{
     backdrop-filter: blur(8px);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.489);
     color: #dcdde1;
+    padding: 10px;
 }
-.logo-default{
+
+.logo-default {
     flex: 1;
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
-.logo-text-default{
+
+.logo-default>img {
+    height: 40px;
+}
+
+.logo-text-default {
     font-weight: 100;
     text-shadow: 0px 0px 10px white;
     letter-spacing: 3px;
 }
-.logo-text-default:hover{
+
+.logo-text-default:hover {
     cursor: pointer;
 }
-.input-container-home{
+
+.input-container-home {
     position: relative;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.374);
     overflow: hidden;
 }
-.input-home{
+
+.input-home {
     width: 100%;
     height: 40px;
     background-color: transparent;
@@ -56,9 +82,10 @@ header{
     color: #dcdde1;
     padding: 5px 10px;
     font-size: 1.2rem;
-    
+
 }
-.input-home + span{
+
+.input-home+span {
     position: absolute;
     right: 0;
     left: 0;
@@ -69,16 +96,19 @@ header{
     transform-origin: left;
     transform: scaleX(0);
 }
-.input-home:focus + span{
+
+.input-home:focus+span {
     transform: scaleX(1);
 }
-.submit-home{
+
+.submit-home {
     position: absolute;
     right: 10px;
     top: 25%;
     width: 20px;
 }
-.submit-home:hover{
+
+.submit-home:hover {
     cursor: pointer;
 }
 
@@ -93,24 +123,29 @@ header{
 .france {
     background-image: url('https://images.wallpapersden.com/image/download/eiffel-tower-paris-france_ZmtrZW6UmZqaraWkpJRobWllrWdma2U.jpg');
 }
-.athens{
+
+.athens {
     background-image: url('https://images3.alphacoders.com/111/1116152.jpg');
 }
-.london{
+
+.london {
     background-image: url('https://wallpaperaccess.com/full/2253810.jpg');
 }
-.roma{
+
+.roma {
     background-image: url('https://media.meer.com/attachments/b84c9fe25a4cfec0ae3b3c0743a9abca8460be96/store/fill/1090/613/7579b0d37101d1b49624dc9a052e62a5e072eb410b99cd1d8808996a2357/La-capital-italiana-esta-plagada-de-arte-historia-y-belleza.jpg');
 }
 
 /* Main Container Home Page */
-.cards-container-home{
+.cards-container-home {
     display: flex;
     height: 100%;
     transform: scale(1);
+    user-select: none;
     background-color: rgb(111, 111, 111);
 }
-.card-home{
+
+.card-home {
     flex: 1 1 0px;
     width: 0;
     display: flex;
@@ -124,16 +159,18 @@ header{
     filter: grayscale(0.8) blur(1px);
     color: transparent;
 }
-.card-home:hover{
+
+.card-home:hover {
     flex: 5 1 0px;
     color: white;
     filter: grayscale(0) blur(0px);
     z-index: 1;
     box-shadow: 0px 0px 30px 20px rgba(0, 0, 0, 0.285);
-    transform: translateZ(2px); 
+    transform: translateZ(2px);
     text-shadow: -5px -5px 10px black;
 }
-.card-home::after{
+
+.card-home::after {
     content: '';
     position: absolute;
     right: 0;
@@ -142,29 +179,36 @@ header{
     z-index: 1;
     transition: 1s;
 }
-.card-home:hover::after{
+
+.card-home:hover::after {
     background-color: rgba(0, 0, 0, 0.079);
     backdrop-filter: blur(3px);
 }
-.city-name-home, .city-temp-home, .city-weather-home{
+
+.city-name-home,
+.city-temp-home,
+.city-weather-home {
     z-index: 3;
     font-weight: 100;
     filter: drop-shadow(10px 10px 10px black);
     white-space: nowrap;
 }
-.city-name-home{
+
+.city-name-home {
     font-size: 6rem;
 }
-.city-temp-home{
+
+.city-temp-home {
     font-size: 2rem;
 }
-.city-weather-home{
+
+.city-weather-home {
     font-size: 2rem;
 }
 
 
 /* Loader */
-.loading-screen{
+.loading-screen {
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -173,6 +217,7 @@ header{
     color: #dcdde1;
     letter-spacing: 2px;
 }
+
 .loader {
     z-index: 10;
     color: #dcdde1;
@@ -189,17 +234,19 @@ header{
     transform: translateZ(0);
     -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
     animation: load6 1.7s infinite ease, round 1.7s infinite ease,
-    hueRotate 15s ease-in-out infinite;
+        hueRotate 15s ease-in-out infinite;
 }
 
 @keyframes hueRotate {
-    0%{
+    0% {
         filter: hue-rotate(0deg);
     }
-    50%{
+
+    50% {
         filter: hue-rotate(360deg);
     }
 }
+
 @-webkit-keyframes load6 {
     0% {
         box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
@@ -213,7 +260,7 @@ header{
     10%,
     59% {
         box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-        
+
     }
 
     20% {
@@ -280,8 +327,9 @@ header{
         transform: rotate(360deg);
     }
 }
+
 /* Error */
-.error-screen{
+.error-screen {
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -291,7 +339,8 @@ header{
     gap: 10px;
     letter-spacing: 2px;
 }
-.error-icon{
+
+.error-icon {
     background-color: #e44545;
     height: 100px;
     width: 100px;
@@ -301,7 +350,8 @@ header{
     justify-content: center;
     align-items: center;
 }
-.error-icon::after{
+
+.error-icon::after {
     content: '';
     position: absolute;
     right: 10px;
@@ -310,7 +360,8 @@ header{
     height: 10px;
     background-color: #dcdde1;
 }
-.error-icon::before{
+
+.error-icon::before {
     content: '';
     position: absolute;
     right: 10px;
@@ -318,4 +369,78 @@ header{
     transform: rotatez(9135deg);
     height: 10px;
     background-color: #dcdde1;
+}
+
+/* Queried city styling */
+.main-container-queried {
+    width: fit-content;
+    margin: auto;
+    margin-top: 80px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.sub-header-queried,
+.middle-container-queried {
+    background-color: #0000006a;
+    backdrop-filter: blur(8px);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.489);
+    color: #dcdde1;
+    padding: 30px;
+}
+
+.sub-header-queried {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+}
+
+.middle-container-queried {
+    display: flex;
+    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-size: 0.8rem;
+}
+
+.middle-container-queried>div {
+    border-right: 1px solid rgb(201, 201, 201);
+    padding-right: 25px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+}
+
+.middle-container-queried>div:last-child {
+    border-right: 1px solid transparent;
+}
+
+.middle-container-queried img {
+    height: 30px;
+    grid-row: span 2;
+}
+
+.city-name-queried {
+    font-size:  4rem;
+    display: flex;
+}
+.city-country-queried{
+    font-size: 1rem;
+    text-align: justify;
+    font-weight: 900;
+}
+.city-temp-queried {
+    font-size: 11rem;
+}
+
+.city-weather-queried {
+    font-size: 1.2rem;
+}
+
+.city-humidity-mainText-queried, .city-clouds-mainText-queried, .city-visibility-mainText-queried{
+    font-weight: 600;
 }
