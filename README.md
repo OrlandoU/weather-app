@@ -11,7 +11,7 @@ Receive a precise report of queried cities containing:
 - Hourly Forecast
 - Daily Forecast
 
-Learned and implemented Asynchronous code via Promises, Error handling, proper APIs usage, and implementation of async/await keyword for a more cleaner and readable code.
+I Learned and implemented Asynchronous code via Promises, Error handling, proper APIs usage, and implementation of async/await keyword for a more cleaner and readable code.
 
 # Technologies:
 Languages, libraries, and Tools implemented in this project:
