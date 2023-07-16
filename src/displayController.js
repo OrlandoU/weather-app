@@ -1,6 +1,5 @@
 import { queryClimate, queryForecast } from "./query"
 import { format, add, max } from 'date-fns'
-import { te } from "date-fns/locale";
 const homeDisplayedCities = ['tokyo', 'roma', 'france', 'new york', 'athens', 'london']
 
 export async function renderHomePage() {
